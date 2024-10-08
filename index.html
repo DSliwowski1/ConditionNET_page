@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <meta property="og:title"
+    content="ConditionNET: Learning Preconditions and Effects for Anomaly Detection and Recovery" />
+  <meta property="og:url" content="https://dsliwowski1.github.io/Self-Aware/" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+
+  <title>ConditionNET: Learning Preconditions and Effects for Anomaly Detection and Recovery</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="icon" href="static/figures/icon2.png">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="static/js/audioPlayer.js" defer></script>
+</head>
+
+<body>
+
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://dsliwowski1.github.io">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://dsliwowski1.github.io/HOI4ABOT_page/">
+              HOI4ABOT
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <section class="publication-header">
+    <div class="hero-body">
+      <div class="container is-max-widescreen">
+        <!-- <div class="columns is-centered"> -->
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ConditionNET: Learning Preconditions and Effects for Anomaly
+            Detection and Recovery</h1>
+          <div class="is-size-3 publication-authors">
+            Under Review
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="publication-author-block">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><a href="https://dsliwowski1.github.io/" target="_blank">Daniel
+                  Sliwowski</a>,</span>
+              <span class="author-block"><a href="https://www.tuwien.at/etit/ict/asl/team/dongheui-lee"
+                  target="_blank">Dongheui Lee</a>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Technische Universitat Wien (TUWien), German Aerospace Center (DLR)</span>
+            </div>
+
+
+
+            <div class="column has-text-centered">
+              <div class="publication-links"
+                style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+                <!-- arXiv Button -->
+                <!-- <span class="link-block">
+		      <a href="put-archive-link" target="_blank"
+			class="external-link button is-normal is-rounded">
+			<span class="icon">
+			  <i class="ai ai-arxiv"></i>
+			</span>
+			<span>arXiv</span>
+		      </a>
+		    </span> -->
+                <!-- PDF Link. -->
+                <!--              <span class="link-block">-->
+                <!--                <a href="static/source/ADDHEREPDF.pdf" target="_blank"-->
+                <!--                  class="external-link button is-normal is-rounded">-->
+                <!--                  <span class="icon">-->
+                <!--                    <i class="fas fa-file-pdf"></i>-->
+                <!--                  </span>-->
+                <!--                  <span>Paper</span>-->
+                <!--                </a>-->
+                <!--              </span>-->
+                <!--                            </span>-->
+                <!-- </span> -->
+                <!-- Colab Link. -->
+                <!--              <span class="link-block">-->
+                <!--                <a href="ADD HERE THE CODE" target="_blank"-->
+                <!--                class="external-link button is-normal is-rounded">-->
+                <!--                <span class="icon">-->
+                <!--                  <i class="fab fa-github"></i>-->
+                <!--                </span>-->
+                <!--                <span>Code</span>-->
+                <!--              </a>-->
+                <!--             </span>-->
+
+                <!--              <span class="link-block">-->
+                <!--                <a href="ADD HERE REPLICATE IF NEEDED" target="_blank"-->
+                <!--                class="external-link button is-normal is-rounded">-->
+                <!--                <span class="icon">-->
+                <!--                  <i class="fas fa-rocket"></i>-->
+                <!--                </span>-->
+                <!--                <span>Demo</span>-->
+                <!--              </a>-->
+                <!--              </span>-->
+                <!-- </span> -->
+                <!-- Colab Link. -->
+
+                <!-- Play/Pause button and audio -->
+                <!-- <span class="link-block">
+		      <span class="audio-player" style="display: inline-block; vertical-align: middle;">
+			<button id="audio-control-button" onclick="toggleAudio()" class="button is-normal is-rounded">
+			  <span class="icon">
+			    <i id="play-icon" class="fas fa-play"></i>
+			  </span>
+			  <span id="play-text">Podcast</span>
+			</button>
+			<audio id="audio-file" src="static/audio/PodCastAudio.wav" type="audio/wav" style="display: none;"></audio>
+		  </span>
+	    </span> -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- 
+<section class="hero is-small">
+  <!~~ <div class="hero-body"> ~~>
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!~~ <div id="results-carousel" class="carousel results-carousel"> ~~>
+      <div class="container">
+      <div class="item">
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/teaser.png" alt="UNIMASKM"/>
+      </div>
+
+    </div>
+  </div>
+ <!~~  </div> ~~>
+  </div>
+  </div>
+ <!~~  </div> ~~>
+</section>
+ -->
+
+  <section class="hero is-small">
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <div class="container">
+            <div class="item">
+              <p style="margin-bottom: 30px">
+
+                <video poster="" id="tree" autoplay controls muted loop height="100%">
+                  <source src="static/videos/ConditionNET_vid.mp4" type="video/mp4">
+                </video>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                The introduction of robots into everyday scenarios necessitates algorithms capable of monitoring the
+                execution of tasks. In this paper, we propose ConditionNET, an approach for learning the preconditions
+                and effects of actions in a fully data-driven manner. We develop an efficient vision-language model and
+                introduce additional optimization objectives during training to ensure consistent feature
+                representations. ConditionNET explicitly models the dependencies between actions, preconditions, and
+                effects, leading to improved performance. We evaluate our model on two robotic datasets, one of which we
+                collected for this paper, containing 406 successful and 138 failed teleoperated demonstrations of a
+                Franka Emika Panda robot performing tasks like pouring and cleaning the counter. We show in our
+                experiments that ConditionNET outperforms all baselines on both anomaly detection and phase prediction
+                tasks. Furthermore, we implement an action monitoring system on a real robot to demonstrate the
+                practical applicability of the learned preconditions and effects. Our results highlight the potential of
+                ConditionNET for enhancing the reliability and adaptability of robots in real-world environments.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+      </div>
+    </section>
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+
+          <div class="column is-centered has-text-centered">
+            <img src="static/figures/overview.png" alt="General pipeline overview" />
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">How do we learn the conditions?</h2>
+            <div class="content has-text-justified">
+              <p>
+                We learn the preconditions and effects of actions by framing it as a state prediction problem. The goal
+                is to classify whether an image corresponds to the precondition or effect of a given action, based on a
+                natural language description, or if it satisfies neither. Our approach utilizes a dataset of skill
+                demonstrations, each containing a sequence of images, action descriptions, and labels indicating success
+                or failure. The demonstrations are segmented into preparation, core, and post-action phases, and the
+                model is trained using triplets of precondition images, effect images, and action descriptions. To
+                enrich the limited data, We implement data augmentation by treating the post-state of one action as the
+                precondition of another and by generating multiple paraphrased descriptions of each action using a
+                language model.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+      </div>
+    </section>
+
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+
+          <div class="column is-centered has-text-centered">
+            <img src="static/figures/GEneral.png" alt="General condition learning overview" />
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <!-- <h2 class="title is-3">How do we learn the conditions?</h2> -->
+            <div class="content has-text-justified">
+              <p>
+                The model architecture comprises two stages, both using transformers. The first stage, the State
+                Transformer, extracts high-level features representing the environment, while the second stage, the
+                Condition Transformer, refines this information by focusing on the action-specific details. The visual
+                features are extracted using a pre-trained DINOv2 model, which processes the image into patches and
+                produces a token-based representation. A frozen CLIP model is used to encode the natural language
+                descriptions, which are integrated in the second stage to guide the model in focusing on relevant
+                features. The training process is driven by two main objectives: a cross-entropy loss to classify the
+                action phase, and a consistency loss that ensures the model learns the relationship between the change
+                in state and the action description. These losses work together to optimize the model’s ability to
+                predict action conditions accurately.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+      </div>
+    </section>
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+
+          <div class="column is-centered has-text-centered">
+            <img src="static/figures/Architecture_new.png" alt="Architecture of our system" />
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">How do we detect anomalies and recover from them?</h2>
+            <div class="content has-text-justified">
+              <p>
+                Our system includes a library of skills, each divided into three phases: pre, core, and effect. The pre
+                phase involves preparation, the core phase completes the main action, and the effect phase verifies
+                successful task completion. We use motion primitives to generate the required motions, and tasks are
+                executed using a Behavior Tree (BT) that selects actions based on current observations. ConditionNET
+                learns action preconditions and effects, which we use for anomaly detection by comparing expected and
+                observed states. If anomalies are detected during the pre phase, the current action halts, and
+                alternative behaviors are triggered. In the core phase, anomaly detection is suspended due to state
+                ambiguity, while in the effect phase, we verify task success and initiate recovery when necessary.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+      </div>
+    </section>
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+
+          <div class="column is-centered has-text-centered">
+            <img src="static/figures/BT.png" alt="Behavior tree example" />
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">(Im)PerfectPour</h2>
+            <div class="content has-text-justified">
+              <p>
+                (Im)PerfectPour is a teleoperated dataset collected in the Autonomous Systems Lab at TU Wien.
+                It includes 406 successful and 138 unsuccessful demonstrations of a Franka Emika Panda robot performing
+                tasks such as picking, placing, pouring, and whipping. The dataset consists of 4 skills:
+              <ul>
+                <li>pick up <b>O1</b>,
+                <li>pour <b>O1</b> into <b>O2</b>,
+                <li>place <b>O1</b> on <b>O2</b>,
+                <li>wipe <b>O1</b>,
+              </ul>
+
+              where <b>O1</b> and <b>O2</b> are the names of the manipulated objects. Each demonstration is recorded
+              using two cameras to increase dataset variability.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+      </div>
+    </section>
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+
+          <div class="column is-centered has-text-centered">
+            <img src="static/figures/DS_statistics.png" alt="Architecture of our system" />
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Qualitative results</h2>
+            <div class="content has-text-justified">
+              Below we present state predictions and anomalies over time. Each hue marks a different expected action,
+              and each saturation denotes a different expected motion phase. In the first case our approach correctly
+              determines that no anomalies have ocurred during the execution. In the second case two anomalies are
+              identified. The first occurs when a human pulls the robot, causing a
+              spill. At this moment, the model switches from predicting "effect" to "unsatisfied." Since the core-motion
+              phase is undefined for anomaly detection, no immediate anomaly is reported, but it is detected when the
+              phase shifts back to "effect," triggering recovery. The second anomaly occurs when the robot fails to pick
+              up a cloth on the first attempt. The model correctly detects that the execution remains in the
+              precondition phase, while the expected state is "effect," identifying this mismatch as an anomaly. The
+              robot then retries and successfully completes the task.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+      </div>
+    </section>
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+
+          <div class="column is-centered has-text-centered">
+            <img src="static/figures/Qualitative.png" alt="Qualitative results" />
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>
+          SOON
+      </div>
+    </section>
+
+
+
+
+    <footer class="footer">
+      <!--  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+      href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+      <i class="fas fa-file-pdf"></i>
+    </a>
+    <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <i class="fab fa-github"></i>
+    </a>
+  </div> -->
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you
+              want to reuse their <a href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit
+              them appropriately.
+            </p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </footer>
+
+</body>
+
+</html>
